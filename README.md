@@ -13,3 +13,9 @@ sudo ./pi_server_dummy
 ```shell
 ./controller -c simple_router.json
 ```
+
+## 流表下载进制转换器
+```shell
+python table_conv.py
+```
+
