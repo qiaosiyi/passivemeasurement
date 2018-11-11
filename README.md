@@ -7,16 +7,16 @@ aaa
 #### 3. 进入目录 PI-Measurement/, 执行 make 操作；     
 #### 4. 进入目录 PI-Measurement/proto/demo_grpc/, 打开终端1， 执行命令  
 ```shell
-sudo ./pi_server_dummy
+# sudo ./pi_server_dummy
 ```
 #### 打开终端2， 执行命令  
 ```shell
-./controller -c simple_router.json
+# ./controller -c simple_router.json
 ```
 
 ## 流表下载进制转换器
 ```shell
-python table_conv.py
+# python table_conv.py
 ```
 #### table_conv.txt
 ```shell
