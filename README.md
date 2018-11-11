@@ -26,7 +26,7 @@ python table_conv.py
 ...
 ```
 SIP       DIP       P   SP   DP
-#### python输出：
+#### 命令行输出：
 ```shell
 1 160202291602022d50102d2382
 2 160202291602022d50102d2383
