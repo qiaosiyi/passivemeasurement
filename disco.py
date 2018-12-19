@@ -12,16 +12,18 @@ di = 1.006
 def getPC(cc,di):
 	flag = 0
 	with open("DISCOplut.txt","wt") as ofile:
-		for i in range(int(D - cc)):
-			c = cc + i
-			fC = (math.pow(di,c) - 1) / ( di - 1 )
-			fC1 = (math.pow(di,c+1) - 1) / ( di - 1 )
-			pc = 1/(fC1 - fC)*quint32
-			# print "c",c,"Pc",pc
-			ofile.write("PLUT["+str(int(c))+"] <= "+str(int(math.floor(pc)))+";")
-			if flag == 0:
-				plutmax = int(math.floor(pc))
-				flag = 1
+		with open("DISCOplutDMA.txt","wt") as ofiledma:
+			for i in range(int(D - cc)):
+				c = cc + i
+				fC = (math.pow(di,c) - 1) / ( di - 1 )
+				fC1 = (math.pow(di,c+1) - 1) / ( di - 1 )
+				pc = 1/(fC1 - fC)*quint32
+				# print "c",c,"Pc",pc
+				ofile.write("PLUT["+str(int(c))+"] <= "+str(int(math.floor(pc)))+";")
+				ofiledma.write(str(int(c))+" "+str(int(math.floor(pc)))+"\n")
+				if flag == 0:
+					plutmax = int(math.floor(pc))
+					flag = 1
 	# print "plutmax =",plutmax,"plutwidth =",plutmax.bit_length()+2
 	print "= Plut Width =",plutmax.bit_length()+2
 	print "="
@@ -40,7 +42,7 @@ def main(di):
 	for i in range(1500):
 		v = random.random()													#generate v random
 		#l = int(random.random()*1500 + 64)		
-		l = 1560				#generate packet lenth
+		l = 1560			#max packet lenth
 		fC = int((math.pow(di,c) - 1) / ( di - 1 ))							#calc f(c)
 		fcniC = math.log(1+(di - 1)*( l + fC ),di)							#calc f-1(x)
 		dertaCL = math.ceil(fcniC - c) - 1									#calc derta(c,l)
@@ -66,14 +68,3 @@ def main(di):
 	getPC(c, di)
 
 main(di)
-
-
-
-
-
-
-
-
-
-
-
