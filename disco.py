@@ -9,7 +9,7 @@ quint16 = 65535
 D = 3072
 di = 1.006
 
-def getPC(cc,di):
+def caculatingPLUT(cc,di):
 	flag = 0
 	with open("DISCOplut.txt","wt") as ofile:
 		with open("DISCOplutDMA.txt","wt") as ofiledma:
@@ -65,6 +65,6 @@ def main(di):
 			print "= Counter Width =",fC.bit_length()+1
 			print "="
 			break
-	getPC(c, di)
+	caculatingPLUT(c, di)
 
 main(di)
