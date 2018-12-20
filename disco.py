@@ -8,7 +8,7 @@ quint16 = 65535
 
 D = 3072
 di = 1.006
-
+#Calculation of lookup table
 def caculatingPLUT(cc,di):
 	flag = 0
 	with open("DISCOplut.txt","wt") as ofile:
@@ -21,14 +21,18 @@ def caculatingPLUT(cc,di):
 				# print "c",c,"Pc",pc
 				ofile.write("PLUT["+str(int(c))+"] <= "+str(int(math.floor(pc)))+";")
 				ofiledma.write(str(int(c))+" "+str(int(math.floor(pc)))+"\n")
+#Write the lookup table to a file and use the file data to download it during configuration
 				if flag == 0:
 					plutmax = int(math.floor(pc))
 					flag = 1
+#Calculate the bit width of the count table
 	# print "plutmax =",plutmax,"plutwidth =",plutmax.bit_length()+2
 	print "= Plut Width =",plutmax.bit_length()+2
+#Calculate the bit width of the PLUT
 	print "="
 	aaa = (math.pow(di,D) - 1) / ( di - 1 )
 	aaaGB = aaa/1024/1024/1024
+#Calculate the maximum value after decompressing the statistical value
 	print "= Max counting value for one flow =", aaa,"Bytes( %.2f" % aaaGB,"GB)"
 	print "="
 	print "= Write PLUT calculation values in file named DISCOplut.txt !!"
