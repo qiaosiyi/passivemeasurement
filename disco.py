@@ -43,7 +43,7 @@ def caculatingPLUT(cc,di):
 def main(di):
 	c = 0
 	sumL = 1
-	for i in range(1500):
+	for i in range(MAX_NUM):
 		v = random.random()													#generate v random
 		#l = int(random.random()*1500 + 64)		
 		l = 1560			#max packet lenth
@@ -65,8 +65,10 @@ def main(di):
 			print "= = = =","di =",di,"= = = = Plut depth =",D,"= = = = = = = = = ="
 			print "="
 			print "= Magic Number =",fC
+#calculation of Cs
 			print "="
 			print "= Counter Width =",fC.bit_length()+1
+#claculation of Wc
 			print "="
 			break
 	caculatingPLUT(c, di)
